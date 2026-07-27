@@ -1,5 +1,5 @@
-resource "github_enterprise_actions_permissions" "enterprise_actions_permissionses" {
-  for_each = var.enterprise_actions_permissionses
+resource "github_enterprise_actions_permissions" "enterprise_actions_permissions" {
+  for_each = var.enterprise_actions_permissions
 
   enabled_organizations = each.value.enabled_organizations
   enterprise_slug       = each.value.enterprise_slug

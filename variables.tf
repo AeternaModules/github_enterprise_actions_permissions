@@ -1,6 +1,6 @@
-variable "enterprise_actions_permissionses" {
+variable "enterprise_actions_permissions" {
   description = <<EOT
-Map of enterprise_actions_permissionses, attributes below
+Map of enterprise_actions_permissions, attributes below
 Required:
     - enabled_organizations
     - enterprise_slug
@@ -29,7 +29,7 @@ EOT
   }))
   validation {
     condition = alltrue([
-      for k, v in var.enterprise_actions_permissionses : (
+      for k, v in var.enterprise_actions_permissions : (
         v.allowed_actions == null || (contains(["all", "local_only", "selected"], v.allowed_actions))
       )
     ])
@@ -37,7 +37,7 @@ EOT
   }
   validation {
     condition = alltrue([
-      for k, v in var.enterprise_actions_permissionses : (
+      for k, v in var.enterprise_actions_permissions : (
         contains(["all", "none", "selected"], v.enabled_organizations)
       )
     ])
